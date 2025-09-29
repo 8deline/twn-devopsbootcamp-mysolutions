@@ -3,7 +3,7 @@
 apt update
 apt install default-jre
 
-java_version = $(java --version | grep "java version/|openjdk version" | awk '{print substr($3, 1, 2)}' )
+java_version=$(java --version 2>&1 | grep "java version\|openjdk version" | awk '{print substr($3, 1, 2)}' )
 
 if ["$java_version" == ""]
 then
