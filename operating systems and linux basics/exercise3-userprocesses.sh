@@ -4,15 +4,15 @@ read -p "Please specify how many lines to pring: " lines_to_print
 
 if [ "$sort_by" == "m" ]
 then
-  $column_number=4
-elif [ "$sort_by" == "m" ]
+  column_number=4
+elif [ "$sort_by" == "c" ]
 then 
-  $column_number=3
+  column_number=3
 else
   echo "no input detected"
 fi
 
-ps aux | sort -k $column_number | head -n $lines_to_print
+ps aux | sort -k $column_number -nr | head -n $lines_to_print
 
 
 
