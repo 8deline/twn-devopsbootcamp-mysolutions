@@ -1,14 +1,14 @@
 #! /bin/bash
 
 apt update
-apt install default-jre
+apt install -y default-jre
 
-java_version=$(java --version 2>&1 | grep "java version\|openjdk version" | awk '{print substr($3, 1, 2)}' )
+java_version=$(java --version 2>&1 | grep "java version\|openjdk version" | awk '{print substr($3, 2, 2)}' )
 
-if ["$java_version" == ""]
+if [ "$java_version" == "" ]
 then
   echo "Unsuccessful installation"
-elif [$java_version -ge 11 ]
+elif [ "$java_version" -ge 11 ]
 then 
   echo "Java version greater than equal to 11 successful"
 else
