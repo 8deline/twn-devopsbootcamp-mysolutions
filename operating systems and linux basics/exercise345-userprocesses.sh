@@ -10,9 +10,10 @@ then
   column_number=3
 else
   echo "no input detected"
+  exit 1
 fi
 
-ps aux | sort -k $column_number -nr | head -n $lines_to_print
+ps aux | sort -k "$column_number" -nr | head -n "$lines_to_print"
 
 
 
